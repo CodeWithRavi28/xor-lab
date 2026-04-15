@@ -54,7 +54,7 @@
 
         #main {
             height: 100vh;
-            width: 100%;
+            width: 100vw;
             /* position: fixed;
             top: 50px;
             left: 0px;
@@ -78,7 +78,7 @@
 
         #banner {
             height: 100vh;
-            width: 100%;
+            width: 100vw;
             position: absolute;
             top: 0px;
             left: 0px;
@@ -110,7 +110,7 @@
         }
 
         #search {
-            position: absolute;
+            position: fixed;
             top: 20px;
             right: 104px;
             z-index: 3;
@@ -119,7 +119,7 @@
         }
 
         #notification {
-            position: absolute;
+            position: fixed;
             top: 20px;
             right: 64px;
             z-index: 3;
@@ -128,7 +128,7 @@
         }
 
         #setting {
-            position: absolute;
+            position: fixed;
             top: 20px;
             right: 24px;
             z-index: 3;
@@ -149,11 +149,9 @@
         }
 
         #content-container {
-            position: absolute;
-            bottom: clamp(12px, 5vh, 40px);
-            left: 0;
-            width: 100%;
-            z-index: 2;
+            /* position: relative; */
+            z-index: 1;
+            margin-right: 0px;
 
 
         }
@@ -185,6 +183,11 @@
                 font-size: 14px;
             }
 
+            #banner-text h1 {
+                top: clamp(65%, 75vh, 85%);
+                font-size: clamp(16px, 3.4vw, 30px);
+            }
+
             #search,
             #notification,
             #setting {
@@ -204,27 +207,29 @@
             }
 
             #slider-content {
-                margin-top: 0;
-                padding: 0 12px;
-            }
-
-            #name-image {
-                top: 18%;
-                width: clamp(170px, 42vw, 360px);
-            }
-
-            #banner-text h1 {
-                top: 56%;
+                margin-top: -55vh;
             }
         }
 
         @media (max-width: 520px) {
             .header {
                 gap: 8px;
+                padding: 12px 10px;
+            }
+
+            #logo {
+                width: 110px;
+                margin-right: 8px;
             }
 
             #nav-container {
                 display: none;
+            }
+
+            #name-image {
+                top: 22vh;
+                left: 12px;
+                width: 72vw;
             }
 
             #search {
@@ -239,38 +244,35 @@
                 right: 24px;
             }
 
+            #search i,
+            #notification i,
+            #setting i {
+                font-size: 16px !important;
+            }
+
             #slider-content {
-                margin-top: 0;
+                margin-top: -28vh;
                 padding: 0 10px;
             }
 
-            #name-image {
-                top: 14%;
-                width: 160px;
+            .content {
+                width: 62vw;
+                height: 35vw;
+                margin: 0 6px;
             }
 
             #banner-text h1 {
-                top: 48%;
+                top: 78vh;
+                font-size: clamp(14px, 4.8vw, 20px);
                 left: 12px;
-                right: 12px;
-                text-align: left;
-                font-size: 16px;
-            }
-
-            #notification {
-                display: none;
-            }
-
-            .content {
-                width: 140px;
-                height: 95px;
-                margin: 0 6px;
+                max-width: 90vw;
+                line-height: 1.25;
             }
         }
 
         @media (min-width: 1024px) {
             #slider-content {
-                margin-top: 0;
+                margin-top: -70vh;
             }
         }
 
@@ -341,6 +343,7 @@
             <div class="content">
                 <img src="assets/img9.jpeg">
             </div>
+            img
 
         </div>
     </div>
