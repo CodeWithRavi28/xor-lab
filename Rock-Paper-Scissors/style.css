@@ -3,6 +3,7 @@
     padding: 0px;
     background-color :#fcf0f0;
     text-align: center;
+    box-sizing: border-box;
 }
 
 h1{
@@ -10,12 +11,13 @@ h1{
     color: white;
     height: 5rem;
     line-height: 5rem;
+    font-size: clamp(1.4rem, 3.5vw, 2.4rem);
     
 }
 .option {
-    height: 250px;
-    width: 250px;
-    margin: 80px;    
+    height: clamp(130px, 24vw, 250px);
+    width: clamp(130px, 24vw, 250px);
+    margin: clamp(12px, 3vw, 40px);
     border-radius: 40%;
     display: flex;
     justify-content: center;
@@ -30,32 +32,34 @@ h1{
     border: 6px solid black;
 }
 img{
-     height: 250px;
-     width: 250px;
+     height: 100%;
+     width: 100%;
      object-fit: cover;
      border-radius: 40%;
      background-color: black;
 }
 .options{
     display: flex;
-    padding: 5rem;
-    justify-content: center;  
+    flex-wrap: wrap;
+    padding: clamp(1rem, 5vw, 5rem);
+    justify-content: center;
+    gap: clamp(0.5rem, 2vw, 2rem);
 }
 .score {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
-    gap: 4rem;
-    margin-bottom: 50px;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    gap: clamp(1.2rem, 5vw, 4rem);
+    margin-bottom: clamp(20px, 5vw, 50px);
 }
 #user-score,#computer-score {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
 }
 .msg-container{
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: clamp(1rem, 3.5vw, 2rem);
     background-color: #F3A712;
     display: inline;
     border-radius: 10%;
@@ -66,5 +70,34 @@ img{
     display: inline;
     border-radius: 10%;
     padding: 0.5rem;
+}
+
+@media (max-width: 767px) {
+    h1 {
+        height: 4rem;
+        line-height: 4rem;
+    }
+
+    .option:hover {
+        border-width: 4px;
+    }
+
+    .score {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .options {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .options {
+        flex-wrap: nowrap;
+    }
 }
 

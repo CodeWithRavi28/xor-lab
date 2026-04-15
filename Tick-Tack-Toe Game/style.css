@@ -1,6 +1,7 @@
 *{
     margin: 0px;    
     padding: 0px;
+    box-sizing: border-box;
 }
 body{
     background-color: #beb7a4;
@@ -9,35 +10,63 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
     
 }
 .cointener{
-    width: 40vmin;
+    width: min(92vw, 460px);
     display: flex; 
     justify-content: center;
     align-items: center;
-    min-height: 50vh;
+    min-height: 52vh;
 }
 .elements{
-    width: 60vmin;
+    width: min(92vw, 460px);
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    gap: 5px;
+    gap: clamp(5px, 1.4vw, 10px);
 }
 .box{
-    width: 100px;
-    height: 100px;
+    width: clamp(84px, 27vw, 130px);
+    height: clamp(84px, 27vw, 130px);
     font-weight: bold;
     border-radius: 1rem;
     box-shadow: 0 0 1rgba(0,0,0,0.4);
-    font-size: 40px; color: #ff7f11;
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    color: #ff7f11;
     background-color: aliceblue;
      
 }
 .reset{
     height: 50px;
-    width: 150px;
+    width: clamp(140px, 35vw, 190px);
     border-radius: 1rem;
+    margin-top: 0.5rem;
+}
+
+h1 {
+    font-size: clamp(1.5rem, 4.2vw, 2.4rem);
+}
+
+@media (max-width: 767px) {
+    .cointener {
+        min-height: 45vh;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .cointener,
+    .elements {
+        width: min(80vw, 520px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .cointener,
+    .elements {
+        width: min(60vw, 540px);
+    }
 }
