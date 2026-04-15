@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>netflix Clone</title>
+
+    <style>
+        /* ::-webkit-scrollbar {
+            display: none;
+        } */
+        * {
+            margin: 0px;
+            box-sizing: border-box;
+            /* scrollbar-width: none;
+             -ms-overflow-style: none; */
+
+
+        }
+
+
+  
+
+        body {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        li {
+            color: white;
+        }
+
+        #logo {
+            width: clamp(120px, 18vw, 170px);
+            height: auto;
+            margin-right: 20px;
+        }
+
+        #nav-container {
+            display: inline-block;
+        }
+
+        li.nav-item {
+            display: inline;
+            margin-right: clamp(10px, 3vw, 30px);
+            font-size: clamp(14px, 2.2vw, 20px);
+            font-family: sans-serif;
+            cursor: pointer;
+        }
+
+        #main {
+            height: 100vh;
+            width: 100vw;
+            /* position: fixed;
+            top: 50px;
+            left: 0px;
+            z-index: 1; */
+            position: relative;
+            z-index: 0;
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: auto;
+            padding: 16px clamp(12px, 4vw, 28px);
+            display: flex;
+            align-items: center;
+            gap: clamp(8px, 2vw, 18px);
+        }
+
+        #banner {
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            object-fit: cover;
+        }
+
+        #name-image {
+            position: absolute;
+            z-index: 1;
+            top: clamp(16%, 20vh, 28%);
+            left: clamp(12px, 6vw, 80px);
+            width: clamp(180px, 40vw, 520px);
+            height: auto;
+        }
+
+        #banner-text banner-heading {
+            position: relative;
+            z-index: 1;
+
+        }
+
+        #banner-text h1 {
+            position: absolute;
+            top: clamp(60%, 72vh, 82%);
+            left: clamp(12px, 6vw, 80px);
+            font-size: clamp(18px, 4vw, 40px);
+            z-index: 1;
+            color: rgb(227, 231, 235);
+        }
+
+        #search {
+            position: fixed;
+            top: 20px;
+            right: 104px;
+            z-index: 3;
+            color: white;
+            cursor: pointer;
+        }
+
+        #notification {
+            position: fixed;
+            top: 20px;
+            right: 64px;
+            z-index: 3;
+            color: white;
+            cursor: pointer;
+        }
+
+        #setting {
+            position: fixed;
+            top: 20px;
+            right: 24px;
+            z-index: 3;
+            color: white;
+            cursor: pointer;
+        }
+
+        #slider-content {
+            overflow-x: auto;
+            overflow-y: hidden;
+            width: 100%;
+            display: inline-block;
+            white-space: nowrap;
+            margin-top: clamp(30px, 6vh, 120px);
+            padding: 0 clamp(12px, 5vw, 48px);
+            position: relative;
+            z-index: 2;
+        }
+
+        #content-container {
+            /* position: relative; */
+            z-index: 1;
+            margin-right: 0px;
+
+
+        }
+
+        .content {
+            height: clamp(110px, 18vw, 170px);
+            width: clamp(160px, 30vw, 280px);
+            margin: 0 clamp(6px, 1.2vw, 12px);
+
+            display: inline-block;
+            cursor: pointer;
+        }
+
+
+        .content img {
+            height: 100%;
+            width: 100%;
+
+        }
+
+        .content img:hover {
+            transform: scale(1.2);
+            transition: all .1s ease-in-out;
+
+        }
+
+        @media (max-width: 1023px) {
+            li.nav-item {
+                font-size: 14px;
+            }
+
+            #search,
+            #notification,
+            #setting {
+                top: 16px;
+            }
+
+            #search {
+                right: 88px;
+            }
+
+            #notification {
+                right: 56px;
+            }
+
+            #setting {
+                right: 24px;
+            }
+
+            #slider-content {
+                margin-top: -55vh;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .header {
+                gap: 8px;
+            }
+
+            #nav-container {
+                display: none;
+            }
+
+            #search {
+                right: 72px;
+            }
+
+            #notification {
+                right: 48px;
+            }
+
+            #setting {
+                right: 24px;
+            }
+
+            #slider-content {
+                margin-top: -35vh;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            #slider-content {
+                margin-top: -70vh;
+            }
+        }
+
+        h2 {
+            position: absolute;
+            z-index: 1;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img id="logo" src="assets/pngwing.com (12).png" />
+
+        <div id="nav-container">
+            <ul>
+                <li class="nav-item">Home</li>
+                <li class="nav-item">Series</li>
+                <li class="nav-item">Films</li>
+                <li class="nav-item">New & Popular</li>
+                <li class="nav-item">My List</li>
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        <img id="banner" ; src="assets/game-of-thrones-1-1920x1080.jpg">
+    </div>
+    <div id="banner-text">
+        <h1>NOW , Watch All The 8 Season</h1>
+        <img id="name-image" src="assets/pngwing.com (13).png">
+    </div>
+    <div id="search">
+        <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+    </div>
+    <div id="notification">
+        <i class="fa-solid fa-bell fa-xl"></i>
+    </div>
+    <div id="setting">
+        <i class="fa-solid fa-gear fa-xl"></i>
+    </div>
+    <div id="content-container">
+        <div id="slider-content">
+            <div class="content">
+                <img src="assets/img1.jpeg">
+            </div>
+            <div class="content">
+                <img src="assets/img2.jpeg">
+            </div>
+            <div class="content">
+                <img src="assets/img3.jpeg">
+            </div>
+            <div class="content">
+                <img src="assets/img4.jpeg">
+            </div>
+            <div class="content">
+                <img src="assets/img5.jpeg">
+            </div>
+            <div class="content">
+                <img src="assets/img6.jpeg">
+            </div>
+            <div class="content">
+                <img src="assets/img7.jpeg">
+            </div>
+            <div class="content">
+                <img src="assets/img8.jpeg">
+            </div>
+            <div class="content">
+                <img src="assets/img9.jpeg">
+            </div>
+            img
+
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+    integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</html>

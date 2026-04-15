@@ -1,0 +1,43 @@
+*{
+    margin: 0px;    
+    padding: 0px;
+}
+body{
+    background-color: #beb7a4;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.cointener{
+    width: 40vmin;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+.elements{
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 5px;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    font-weight: bold;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rgba(0,0,0,0.4);
+    font-size: 40px; color: #ff7f11;
+    background-color: aliceblue;
+     
+}
+.reset{
+    height: 50px;
+    width: 150px;
+    border-radius: 1rem;
+}
